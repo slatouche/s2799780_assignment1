@@ -1,0 +1,97 @@
+<head>
+  <title>s2799780_Assignment1</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0 "></div>
+
+      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 ">
+        <h1>1612ICT Assignment 1 - Calculator</h1>
+      </div>
+
+    </div>
+    
+    <br>
+
+    <div class="row">
+
+      <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0 "></div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+        <!-- keys pressed -->
+        {{>numbers}}
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+        <span id="calcTitle">Previous Calculations</span>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0 "></div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+        <!-- keypad buttons -->
+        {{>keypad}}
+      </div>
+
+      <div id="calcs" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+        {{>calcs}}
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+<template name="keypad">
+
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="btn7" class="btn btn-warning">7</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="btn8" class="btn btn-warning">8</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="btn9" class="btn btn-warning">9</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="plusBtn" class="btn btn-primary">+</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="divideBtn" class="btn btn-primary">/</button>
+  <br>
+  <button type="button" style="width:18%" id="btn4" class="btn btn-warning">4</button>
+  <button type="button" style="width:18%" id="btn5" class="btn btn-warning">5</button>
+  <button type="button" style="width:18%" id="btn6" class="btn btn-warning">6</button>
+  <button type="button" style="width:18%" id="minusBtn" class="btn btn-primary">–</button>
+  <button type="button" style="width:18%" id="modBtn" class="btn btn-primary">%</button>
+  <br>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="btn1" class="btn btn-warning">1</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="btn2" class="btn btn-warning">2</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="btn3" class="btn btn-warning">3</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="multiplyBtn" class="btn btn-primary">x</button>
+  <button type="button" style="width:18%;margin-top:5px;margin-bottom:5px" id="clearBtn" class="btn btn-danger">C</button>
+  <br>
+  <button type="button" style="width:37.5%" id="btn0" class="btn btn-warning">0</button>
+  <button type="button" style="width:18%" id="dotBtn" class="btn btn-warning">.</button>
+  <button type="button" style="width:37.5%" id="equalsBtn" class="btn btn-success">=</button>
+  <br>
+
+</template>
+
+<template name="numbers">
+
+  <!--<p>{{pressedNums}}</p>-->
+  <input type="text" style="width:100%" readonly name="NumberField" value="{{display}}"><br>
+
+</template>
+
+<template name="calcs">
+
+  {{#each recentCalcs}}
+    {{calculation}}
+    <br>
+  {{/each}}
+
+
+</template>
